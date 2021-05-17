@@ -1,0 +1,10 @@
+.search-bar{
+    height: 44px;
+    line-height: 44px;
+}
+.del{
+    color:red;
+    &:hover{
+        color:lightblue;
+    }
+}

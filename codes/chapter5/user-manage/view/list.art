@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画江湖之不良人-人物列表</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        .list-content {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        h4 {
+            text-align: center;
+            position: relative;
+        }
+
+        h4 a {
+            position: absolute;
+            right: 8px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list-content">
+        <h4>画江湖之不良人-人物列表 <a href="/add" class="btn btn-default btn-sm active">添加</a></h4>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>门派</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each users}}
+                <tr>
+                    <td>{{$value.name}}</td>
+                    <td>{{$value.age}}</td>
+                    <td>{{$value.sex}}</td>
+                    <td>{{schools[$value.school]}}</td>
+                    <td>{{ moment($value.createOn).format('YYYY-MM-DD')}}</td>
+                    <td><a href="/delete?id={{@$value._id}}" class="btn btn-danger btn-sm active">删除</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>

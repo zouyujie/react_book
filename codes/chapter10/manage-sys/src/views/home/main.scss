@@ -1,0 +1,47 @@
+
+   .main {
+    .cell {
+      height: 200px;
+      padding: 15px;
+      color: #FFF;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      h4,h5{
+        color: #FFF;
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .iconfont {
+        font-size: 80px;
+        height: 110px;
+      }
+    }
+    .s1,.s4 {
+      background-color: #2AA74F;
+    }
+   .s2,.s5 {
+      background-color: #D7AF13;
+    }
+   .s3,.s6 {
+      background-color: #166CBD;
+    }
+    .chart {
+      min-height: 400px;
+      padding: 30px 15px;
+      margin-top: 20px;
+      overflow: hidden;
+      width: 49%;
+      background-color: #fff;
+      border-radius: 5px;
+      float: left;
+    }
+    .chart:last-child{
+      float: right;
+    }
+   }
+ 
+
+  

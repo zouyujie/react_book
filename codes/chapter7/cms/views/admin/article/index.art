@@ -1,0 +1,127 @@
+{{extend '../../layout/layout.art'}}
+{{block 'main'}}
+{{include '../../layout/sidebar.art'}}
+{{include '../../layout/header.art'}}
+
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>文章列表</h1>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /# row -->
+            <div class="main-content">
+                <div class="search-bar">
+                    <form class="form-inline" action="/admin/article" id="searchForm" method="GET">
+                        <div class="form-group">
+                            <label for="username">文章标题</label>
+                            <input type="text" class="form-control" name="title" placeholder="文章标题">
+                        </div>
+                        <button type="submit" class="btn btn-primary">查询</button>
+                        <button type="button" class="btn btn-success fr" onclick="addArticle()">创建文章</button>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-body">
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>标题</th>
+                                            <th>发布时间</th>
+                                            <th>作者</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{each articles.records}}
+                                        <tr>
+                                            <td>{{@$value._id}}</td>
+                                            <td>{{$value.title}}</td>
+                                            <td>{{moment($value.createTime).format('YYYY-MM-DD HH:mm')}}</td>
+                                            <td>{{$value.author.username}}</td>
+                                            <td class="operator">
+                                                <a href="/admin/article/edit-view?id={{@$value._id}}"
+                                                    class="ti-pencil color-primary"></a>
+                                                <i class="ti-close color-danger delete" data-toggle="modal"
+                                                    data-target=".confirm-modal" data-id="{{@$value._id}}"></i>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                                <!-- 分页 -->
+                                <ul class="pagination">
+                                    {{if articles.page > 1}}
+                                    <li>
+                                        <a href="/admin/article?page={{articles.page - 1}}">
+                                            <span>&laquo;</span>
+                                        </a>
+                                    </li>
+                                    {{/if}}
+
+                                    {{each articles.display}}
+                                    <li><a href="/admin/article?page={{$value}}">{{$value}}</a></li>
+                                    {{/each}}
+
+                                    {{if articles.page < articles.pages}}
+                                    <li>
+                                        <a href="/admin/article?page={{articles.page - 0 + 1}}">
+                                            <span>&raquo;</span>
+                                        </a>
+                                    </li>
+                                    {{/if}}
+                                </ul>
+                                <!-- /分页 -->
+                            </div>
+                        </div>
+                    </div><!-- /# column -->
+                </div><!-- /# row -->
+            </div>
+            <!-- /# main content -->Copyright &copy; 2019.Company name All rights reserved.<a target="_blank"
+                href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+        </div><!-- /# container-fluid -->
+    </div><!-- /# main -->
+    <!-- 删除确认弹出框 -->
+    <div class="modal fade confirm-modal">
+        <div class="modal-dialog modal-lg">
+            <form class="modal-content" action="/admin/article/delete" method="get">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">请确认</h4>
+                </div>
+                <div class="modal-body">
+                    <p>您确定要删除这篇文章吗?</p>
+                    <input type="hidden" name="id" id="deleteArtcleId">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-primary" value="确定">
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!-- /# content wrap -->
+{{/block}}
+{{block 'script'}}
+<script>
+    //跳转到创建文章页面
+    function addArticle() {
+        window.location.href = '/admin/article/edit-view';
+    }
+    //删除操作
+    $('.delete').on('click', function () {
+        // 获取用户id
+        var id = $(this).attr('data-id');
+        // 将要删除的用户id存储在隐藏域中
+        $('#deleteArtcleId').val(id);
+    })
+</script>
+{{/block}}

@@ -1,0 +1,76 @@
+{{extend '../../layout/layout.art'}}
+{{block 'main'}}
+{{include '../../layout/sidebar.art'}}
+{{include '../../layout/header.art'}}
+<style>
+    .form-container {
+        padding-top: 10px;
+    }
+</style>
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 分类标题 -->
+            <div class="row">
+                <div class="col-lg-12 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1 class="tips"><span>{{message}} </span><span
+                                    style="display: {{button == '修改' ? 'inline-block' : 'none'}}">{{user && user._id}}</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /# row -->
+            <form class="form-horizontal form-container" action="{{link}}" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户名</label>
+                    <div class="col-sm-10">
+                        <input name="username" type="text" class="form-control" placeholder="请输入用户名"
+                            value="{{user && user.username}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">邮箱</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="请输入邮箱地址" name="email"
+                            value="{{user && user.email}}">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" placeholder="请输入密码" name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">角色</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="role">
+                            <option value="normal" {{user && user.role == 'normal' ? 'selected' : ''}}>普通用户</option>
+                            <option value="admin" {{user && user.role == 'admin' ? 'selected' : ''}}>超级管理员</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">状态</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="status">
+                            <option value="0" {{user && user.status == '0' ? 'selected' : ''}}>启用</option>
+                            <option value="1" {{user && user.status == '1' ? 'selected' : ''}}>禁用</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" class="btn btn-primary" value="{{button}}">
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10 has-error"> <label class=" control-label">{{err}}</label></div>
+            </form>
+        </div>
+    </div>
+</div><!-- /# content wrap -->
+{{/block}}

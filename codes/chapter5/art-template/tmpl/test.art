@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {{if user}}
+    <h2>{{user.name}}</h2>
+    {{/if}}
+
+    <% if (user) { %>
+    <h2><%= user.name %></h2>
+    <% } %>
+    <!-- 标准语法 -->
+    <h2>{{@ value }}</h2>
+    <!-- 原始语法 -->
+    <h2><%- value %></h2>
+
+    <!-- 标准语法 -->
+    {{if 条件}} ... {{/if}}
+    {{if v1}} ... {{else if v2}} ... {{/if}}
+    <!-- 原始语法 -->
+    <% if (value) { %> ... <% } %>
+    <% if (v1) { %> ... <% } else if (v2) { %> ... <% } %>
+    <!-- 标准语法 -->
+    {{each target}}
+    {{$index}} {{$value}}
+    {{/each}}
+
+    <!-- 标准语法 -->
+    {{each target}}
+    {{$index}} {{$value}}
+    {{/each}}
+    <!-- 原始语法 -->
+    <% for(var i = 0; i < target.length; i++){ %>
+    <%= i %> <%= target[i] %>
+    <% } %>
+
+    <!-- 标准语法 -->
+    {{include './header.art'}}
+    <!-- 原始语法 -->
+    <% include('./header.art') %>
+</body>
+
+</html>

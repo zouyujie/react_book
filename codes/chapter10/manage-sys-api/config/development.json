@@ -1,0 +1,11 @@
+{
+  "title": "玉杰文章管理系统",
+    "db": {
+      "user": "admin",
+      "host": "localhost",
+      "port": "27017",
+      "name": "manage_sys",
+      "pwd": "123456"
+    }
+  }
+  

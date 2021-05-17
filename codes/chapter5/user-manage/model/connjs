@@ -1,0 +1,9 @@
+const mongoose = require('mongoose');
+// 连接数据库
+mongoose
+  .connect('mongodb://localhost/users', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }) //useUnifiedTopology 这个即是报的警告
+  .then(() => console.log('数据库连接成功'))
+  .catch(() => console.log('数据库连接失败'));

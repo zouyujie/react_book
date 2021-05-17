@@ -1,0 +1,16 @@
+{
+  "name": "art-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "moment": "^2.26.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

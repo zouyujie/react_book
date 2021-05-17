@@ -1,0 +1,25 @@
+.ant-layout-header{
+  display: flex;
+  padding-left: 0px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  >img{
+    height: 100%;
+  }
+  }
+  .icon-btn{
+    display: flex;
+    justify-content: center;
+     width: 50px;
+     color:white;
+     align-items: center;
+     .anticon{
+       font-size: 24px;
+       &:hover{
+         color:lightblue;
+       }
+     }
+  }

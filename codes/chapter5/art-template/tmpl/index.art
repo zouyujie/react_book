@@ -1,0 +1,5 @@
+<!--index.art 首页模板-->
+{{extend "./layout.art"}}
+{{block 'head'}}
+<link rel="stylesheet" href="../css/index.css"> {{/block}}
+{{block 'content'}} <p>{{ msg }}——我就是我</p> {{/block}}
