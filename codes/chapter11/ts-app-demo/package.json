@@ -12,7 +12,7 @@
     "@types/lodash": "^4.14.165",
     "@types/request": "^2.48.5",
     "express": "^4.17.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "request": "^2.88.2"
   }
 }
