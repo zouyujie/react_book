@@ -1,0 +1,13 @@
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li class="{{currentLink=='user'?'active':''}}"><a href="/admin/user"><i class="ti-user"></i>
+                        用户列表</a></li>
+                <li class="{{currentLink=='article'?'active':''}}"><a href="/admin/article"><i
+                            class="ti-layout-grid2-alt"></i> 文章列表</a></li>
+                <li><a href="/logout"><i class="ti-close"></i> 退出登录</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

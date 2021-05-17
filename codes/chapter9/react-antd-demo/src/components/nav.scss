@@ -1,0 +1,15 @@
+.nav {
+  ul {
+    list-style: none;
+    li {
+      float: left;
+      width: 60px;
+      .active {
+        color: red;
+      }
+      .selected {
+        color: blue;
+      }
+    }
+  }
+}

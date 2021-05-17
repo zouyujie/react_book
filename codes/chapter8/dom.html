@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myDiv" title="乘风破浪会有时" data-index="1">
+        <p>李白</p>
+    </div>
+</body>
+<script>
+    var div = document.getElementById('myDiv');
+    console.dir(div);
+</script>
+<script>
+    //js模拟构造div的dom树对象
+    var divObj = {
+        tagName: "DIV",
+        attributes: {
+            id: "myDiv",
+            title: "乘风破浪会有时",
+            "data-index": 1
+        },
+        children:
+            [{
+                tagName: "P",
+                children: ["李白"]
+            }]
+    }
+</script>
+
+</html>

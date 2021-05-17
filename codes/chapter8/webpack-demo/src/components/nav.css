@@ -1,0 +1,30 @@
+li {
+  list-style-type: none;
+  font-size: 14px;
+  float: left;
+  color: lightblue;
+  margin: 0px 5px;
+}
+
+li:hover {
+  color: blue;
+}
+
+.first {
+  color: red;
+  text-decoration: underline;
+}
+
+:global(.last) {
+  position: relative;
+}
+
+:global(.last::after) {
+  position: absolute;
+  bottom: -2px;
+  left: 0px;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: orange;
+}

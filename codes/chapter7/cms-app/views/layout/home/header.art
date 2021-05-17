@@ -1,0 +1,32 @@
+<!-- 头部框架开始 -->
+<style>
+    .user-info {
+        height: 60px;
+        color: white;
+        line-height: 60px;
+        text-align: center;
+    }
+</style>
+<div class="header">
+    <div class="w1100">
+        <!-- 网站logo开始 -->
+        <h1 class="logo fl">
+            <a href="/"><img src="logo/logo.png" alt="不良人CMS"></a>
+        </h1>
+        <!-- 网站logo结束 -->
+        <div class="user-info fr">
+            {{userInfo&&userInfo.username}}
+        </div>
+        <!-- 网站导航开始 -->
+        <ul class="navigation fr">
+            <li>
+                <a class="active" href="/">首页</a>
+            </li>
+            <li>
+                <a href="/login">登录</a>
+            </li>
+        </ul>
+        <!-- 网站导航结束 -->
+    </div>
+</div>
+<!-- 头部框架结束 -->
